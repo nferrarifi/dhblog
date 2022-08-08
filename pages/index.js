@@ -16,7 +16,7 @@ export default function Home(/* { posts } */) {
   return (
     <div>
       <Head>
-        <title>Nahuel's Portfolio Board</title>
+        <title>Nahuels Portfolio Board</title>
         <meta
           name="description"
           content="Created using nextjs, prisma, chakraUI and mongodb"
