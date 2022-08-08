@@ -2,15 +2,10 @@ import React from "react";
 import { getAllPosts, getSpecificPost } from "../../repo/post";
 import PostDetail from "../../components/PostDetail";
 
-const id = (props) => {
-  console.log(props.post);
+const id = ({ post }) => {
   return (
     <>
-      <PostDetail
-        key={props.post.id}
-        title={props.post.title}
-        content={props.post.content}
-      />
+      <PostDetail key={post.id} title={post.title} content={post.content} />
     </>
   );
 };
@@ -22,7 +17,7 @@ export async function getStaticPaths() {
     paths: posts.map((post) => {
       return { params: { id: post.id } };
     }),
-    fallback: true,
+    fallback: false,
   };
 }
 
