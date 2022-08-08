@@ -12,19 +12,19 @@ const id = ({ post }) => {
 
 export async function getStaticPaths() {
   const posts = await getAllPosts();
-  console.log(posts);
   return {
     paths: posts.map((post) => {
       return { params: { id: post.id } };
     }),
-    fallback: false,
+    fallback: blocking,
   };
 }
 
 export async function getStaticProps(context) {
   const post = await getSpecificPost(context.params.id);
   return {
-    props: { post }, // will be passed to the page component as props
+    props: { post }, // will be passed to the page component as props,
+    revalidate: 1,
   };
 }
 
