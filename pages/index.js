@@ -1,10 +1,11 @@
 import Head from "next/head";
 import { Box, Flex } from "@chakra-ui/react";
 import Post from "../components/Post";
+import config from "../config";
 /* import { getPost } from "../repo/post";
  */ import { useQuery } from "@tanstack/react-query";
 const fetchPosts = async () =>
-  fetch("http://localhost:3000/api/posts").then((data) => data.json());
+  fetch(`${config.baseURL}/api/posts`).then((data) => data.json());
 
 export default function Home(/* { posts } */) {
   const { data, isError, isLoading, isSuccess } = useQuery(

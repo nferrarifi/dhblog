@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import config from "../config";
 import {
   Modal,
   ModalOverlay,
@@ -16,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 const createPost = async (postData) => {
-  return fetch(`http://localhost:3000/api/posts`, {
+  return fetch(`${config.baseURL}/api/posts`, {
     method: "POST",
     body: JSON.stringify(postData),
     headers: {
